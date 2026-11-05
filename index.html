@@ -42,6 +42,7 @@ header{background:var(--coral);position:sticky;top:0;z-index:50;box-shadow:0 4px
 header .wrap{display:flex;align-items:center;gap:40px;height:104px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
 .logo-mark{width:64px;height:64px}
+.logo-img{height:60px;width:auto;display:block}
 .logo-text{font-family:var(--serif);font-size:1.9rem;line-height:1}
 .logo-text small{display:block;font-family:var(--sans);font-weight:900;font-size:.62rem;letter-spacing:.14em;color:var(--sun);text-transform:uppercase;margin-top:4px;white-space:nowrap}
 nav ul{display:flex;gap:28px;list-style:none}
@@ -209,6 +210,7 @@ footer{background:var(--ink);color:#f3e9e4;padding:80px 0 40px}
   header .wrap{height:84px}
   nav.open{top:84px}
   .logo-mark{width:48px;height:48px}
+  .logo-img{height:46px}
   .logo-text{font-size:1.5rem}
   .announce{font-size:.8rem}
   .notice .wrap{align-items:flex-start}
@@ -240,16 +242,7 @@ footer{background:var(--ink);color:#f3e9e4;padding:80px 0 40px}
 
 <header>
   <div class="wrap">
-    <a href="#" class="logo" aria-label="babystep inicio">
-      <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true">
-        <circle cx="32" cy="32" r="30" fill="#fff"/>
-        <circle cx="32" cy="32" r="25" fill="#FFD23F"/>
-        <ellipse cx="32" cy="39" rx="10" ry="13" fill="#FF5A4E"/>
-        <circle cx="22.5" cy="20" r="3.6" fill="#FF5A4E"/><circle cx="30" cy="16.5" r="3.8" fill="#FF5A4E"/>
-        <circle cx="38" cy="17" r="3.4" fill="#FF5A4E"/><circle cx="44" cy="21.5" r="3" fill="#FF5A4E"/>
-      </svg>
-      <span class="logo-text">babystep<small>fórmula infantil · leche de vaca</small></span>
-    </a>
+    <a href="#" class="logo" aria-label="Baby Step inicio"><img class="logo-img" src="img/logo.png" alt="Baby Step"></a>
     <nav id="nav">
       <ul>
         <li><a href="#productos">Etapas <i class="chev"></i></a></li>
