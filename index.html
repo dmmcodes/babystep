@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>babystep · Fórmula infantil a base de leche de vaca</title>
+<meta name="description" content="babystep: fórmula infantil a base de leche de vaca, con vitaminas y minerales, para acompañar cada etapa del crecimiento de tu bebé.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='30' fill='%23FF5A4E'/><ellipse cx='32' cy='38' rx='11' ry='14' fill='%23FFD23F'/><circle cx='22' cy='18' r='4' fill='%23FFD23F'/><circle cx='31' cy='15' r='4' fill='%23FFD23F'/><circle cx='40' cy='18' r='4' fill='%23FFD23F'/></svg>">
+<style>
+:root{
+  --coral:#FF5A4E; --coral-dk:#E2423A; --sun:#FFD23F; --cream:#FFF7EA;
+  --leaf:#2FB36B; --leaf-dk:#1E8F52; --sky:#7FD3F7; --ink:#2A1E1C; --white:#fff;
+  --serif:"Young Serif",Georgia,serif; --sans:"Nunito",system-ui,sans-serif;
+  --wrap:1200px; --r:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:-.01em}
+.btn{display:inline-block;white-space:nowrap;font-weight:900;text-decoration:none;padding:15px 34px;font-size:1.05rem;transition:transform .2s,box-shadow .2s;cursor:pointer;border:0}
+.btn:hover{transform:translateY(-3px)}
+.btn-flag{background:var(--sun);color:var(--ink);clip-path:polygon(0 0,100% 0,97% 50%,100% 100%,0 100%,3% 50%)}
+.btn-dark{background:var(--coral-dk);color:#fff;border-radius:6px;text-transform:uppercase;letter-spacing:.02em}
+.btn-coral{background:var(--coral);color:#fff;border-radius:999px}
+
+/* announcement */
+.announce{background:var(--sun);font-weight:800;font-size:.95rem}
+.announce .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:44px;padding-top:8px;padding-bottom:8px}
+.announce a{font-style:italic}
+.social{display:flex;gap:12px;flex:none}
+.social a{width:22px;height:22px;border-radius:6px;background:var(--coral);display:grid;place-items:center}
+.social svg{width:13px;height:13px;fill:#fff}
+
+/* header */
+header{background:var(--coral);position:sticky;top:0;z-index:50;box-shadow:0 4px 0 rgba(0,0,0,.06)}
+header .wrap{display:flex;align-items:center;gap:40px;height:104px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
+.logo-mark{width:64px;height:64px}
+.logo-text{font-family:var(--serif);font-size:1.9rem;line-height:1}
+.logo-text small{display:block;font-family:var(--sans);font-weight:900;font-size:.62rem;letter-spacing:.14em;color:var(--sun);text-transform:uppercase;margin-top:4px;white-space:nowrap}
+nav ul{display:flex;gap:28px;list-style:none}
+nav a{white-space:nowrap;color:#fff;text-decoration:none;font-weight:900;text-transform:uppercase;font-size:1.02rem;display:flex;align-items:center;gap:6px}
+nav a:hover{color:var(--sun)}
+nav a .chev{width:10px;height:10px;border-right:2.5px solid var(--sun);border-bottom:2.5px solid var(--sun);transform:rotate(45deg) translateY(-3px)}
+.hdr-right{margin-left:auto;display:flex;align-items:center;gap:24px}
+.menu-btn{display:none;background:none;border:0;cursor:pointer}
+.menu-btn span{display:block;width:28px;height:3px;background:#fff;margin:6px 0;border-radius:3px}
+
+/* hero */
+.hero{background:var(--coral);position:relative;overflow:hidden;color:#fff;min-height:720px}
+.hero .wrap{position:relative;z-index:3;display:grid;grid-template-columns:.95fr 1.05fr;gap:20px;align-items:center;padding-top:60px;padding-bottom:210px}
+.hero .wrap>*{min-width:0}
+.hero h1{font-size:clamp(2.6rem,4.8vw,4.2rem)}
+.hero h1 em{font-style:normal;color:var(--sun)}
+.hero p{font-size:1.3rem;font-weight:700;max-width:560px;margin:26px 0 34px}
+.hero .wrap>*:first-child{position:relative;top:-50px}
+.scene{position:absolute;inset:0;z-index:1;pointer-events:none}
+.cloud{position:absolute;fill:#fff;opacity:.35;animation:drift 40s linear infinite}
+.balloon{position:absolute;right:6%;top:150px;width:120px;animation:bob 6s ease-in-out infinite}
+@keyframes drift{from{transform:translateX(-10vw)}to{transform:translateX(110vw)}}
+@keyframes bob{50%{transform:translateY(-22px) rotate(3deg)}}
+.hills{position:absolute;left:0;right:0;bottom:-2px;width:100%;height:auto}
+.hero-art{position:relative;align-self:end;margin:0 -30px -170px 0}
+.hero-art .kids{position:relative;width:72%;z-index:2;filter:drop-shadow(0 14px 18px rgba(0,0,0,.12))}
+.hero-art .pouch{position:absolute;bottom:-6px;width:22%;z-index:3;filter:drop-shadow(0 18px 18px rgba(0,0,0,.28))}
+.hero-art .p1{right:19%;width:22%}
+.hero-art .p2{right:-2%}
+.hero-art .heart{position:absolute;left:30%;top:-4%;width:11%;z-index:1;animation:float 4s ease-in-out infinite}
+.hero-art .spark{position:absolute;right:20%;top:-12%;width:12%;z-index:1}
+@keyframes float{50%{transform:translateY(-10px)}}
+@media (min-width:1181px){
+  .hero{height:calc(100vh - 148px);min-height:500px;max-height:780px}
+  .hero .wrap{height:100%;padding-top:20px;padding-bottom:9vh;align-items:center}
+  .hero h1{font-size:clamp(2.2rem,min(4.8vw,8vh),4.2rem)}
+  .hero p{font-size:clamp(1rem,2.6vh,1.3rem);margin:min(26px,2.5vh) 0 min(34px,3.5vh)}
+  .hills{height:clamp(110px,24vh,230px)}
+  .hero-art{width:min(100%,calc((100vh - 148px)*1.2));justify-self:end;margin:0 -30px calc(7vh - 9vh) 0;align-self:end}
+  .hero-art .pouch{bottom:2%}
+  .balloon{top:8%;width:clamp(70px,12vh,120px)}
+}
+.steps{position:absolute;bottom:70px;left:8%;z-index:2;display:flex;gap:26px;opacity:.9}
+.steps svg{width:34px;fill:var(--sun)}
+.steps svg:nth-child(even){transform:translateY(-22px) rotate(10deg)}
+
+/* breastfeeding notice */
+.notice{background:#fff;border-bottom:4px solid var(--sun)}
+.notice .wrap{display:flex;align-items:center;gap:22px;padding-top:26px;padding-bottom:26px}
+.notice svg{width:54px;height:54px;flex:none}
+.notice p{font-weight:700;font-size:1.02rem}
+.notice strong{font-weight:900;color:var(--coral-dk)}
+
+/* banners */
+.split{display:grid;grid-template-columns:1fr 1fr}
+.split > div{position:relative;padding:28px 4vw;display:flex;flex-direction:row;align-items:center;justify-content:center;gap:clamp(16px,2.4vw,34px);min-height:200px}
+.split img{width:clamp(110px,12vw,170px);height:auto;flex:none}
+.split .cow{position:relative;display:block;width:clamp(110px,12vw,170px);flex:none}
+.split .cow img{display:block;width:100%}
+.split .cow .tail{position:absolute;left:0;top:0;transform-origin:24% 52%;animation:wag 3.6s ease-in-out infinite alternate}
+@keyframes wag{from{transform:rotate(-9deg)}to{transform:rotate(9deg)}}
+.split h2{font-size:clamp(1.6rem,2.6vw,2.4rem);line-height:1.08}
+.split p{font-size:clamp(1rem,1.3vw,1.2rem);font-weight:700;max-width:300px;margin-top:8px;line-height:1.3}
+.panel-sun{background:var(--sun);color:var(--ink)}
+.panel-leaf{background:var(--leaf);color:#fff}
+.split .drops{position:absolute;width:28px;left:calc(50% - 150px);bottom:34px}
+.split .spark2{position:absolute;right:5%;top:50%;width:48px;transform:translateY(-10%)}
+.badge-big{width:150px;height:150px}
+
+/* promise */
+.promise{background:var(--cream);padding:110px 0;text-align:center}
+.promise h2{font-size:clamp(2.2rem,4vw,3.4rem);color:var(--coral)}
+.promise-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:26px;margin-top:60px}
+.pbadge{display:flex;flex-direction:column;align-items:center;gap:16px;font-weight:900;font-size:1.05rem}
+.pbadge .ic{width:120px;height:120px;border-radius:50%;background:#fff;border:5px solid var(--sun);display:grid;place-items:center;transition:transform .3s}
+.pbadge:hover .ic{transform:rotate(-8deg) scale(1.06)}
+.pbadge svg{width:60px;height:60px}
+.fine{font-size:.82rem;color:#7a6a66;margin-top:46px}
+
+/* products */
+.products{background:var(--sky);padding:110px 0;position:relative;overflow:hidden}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:50px}
+.sec-head h2{font-size:clamp(2.2rem,4vw,3.4rem)}
+.sec-head p{font-weight:700;font-size:1.15rem;max-width:520px;margin-top:10px}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;max-width:900px;margin:0 auto}
+.card{background:#fff;border-radius:var(--r);padding:34px 28px 30px;text-align:center;text-decoration:none;transition:transform .3s,box-shadow .3s;box-shadow:0 10px 0 rgba(0,0,0,.08)}
+.card:hover{transform:translateY(-10px);box-shadow:0 22px 0 rgba(0,0,0,.08)}
+.card .art{height:340px;display:grid;place-items:center;border-radius:16px;margin-bottom:24px}
+.card .art img{height:300px;width:auto;max-width:100%;object-fit:contain;filter:drop-shadow(0 14px 14px rgba(0,0,0,.18))}
+.card h3{font-size:1.6rem;margin-bottom:6px}
+.card span{font-weight:800;color:var(--coral)}
+.tag{display:inline-block;background:var(--sun);font-weight:900;font-size:.75rem;padding:4px 12px;border-radius:999px;margin-bottom:12px;text-transform:uppercase;letter-spacing:.08em}
+.products .fine{text-align:center;color:#1d4b5e}
+
+/* stories */
+.stories{background:var(--coral);color:#fff;padding:110px 0}
+.stories .sec-head h2 em{font-style:normal;color:var(--sun)}
+.story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.story{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;text-decoration:none;color:#fff;display:flex;align-items:flex-end}
+.story .bg{position:absolute;inset:0;transition:transform .5s}
+.story:hover .bg{transform:scale(1.07)}
+.story .lbl{position:relative;width:100%;padding:28px;background:linear-gradient(transparent,rgba(0,0,0,.45));font-family:var(--serif);font-size:1.9rem;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.story-img .bg{width:100%;height:100%;object-fit:cover}
+.story-img .lbl{background:none;justify-content:flex-end;padding:20px}
+.arrow{width:46px;height:46px;border-radius:50%;background:var(--sun);display:grid;place-items:center;flex:none}
+.arrow svg{width:20px;stroke:var(--ink);fill:none;stroke-width:3}
+
+/* preparation guide */
+.prep{padding:110px 0;background:var(--cream)}
+.prep .sec-head h2{color:var(--coral)}
+.prep-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;counter-reset:paso}
+.paso{background:#fff;border-radius:var(--r);padding:28px 22px;box-shadow:0 8px 0 rgba(0,0,0,.06);position:relative;transition:transform .3s}
+.paso:hover{transform:translateY(-6px)}
+.paso::before{counter-increment:paso;content:counter(paso);position:absolute;top:-18px;left:22px;width:40px;height:40px;border-radius:50%;background:var(--coral);color:#fff;font:900 1.2rem var(--sans);display:grid;place-items:center}
+.paso .em{font-size:2.8rem;margin:10px 0 12px}
+.paso h3{font-size:1.25rem;margin-bottom:8px}
+.paso p{font-size:.96rem;color:#5d4e4a}
+.warn{margin-top:40px;background:#FFE3E0;border-left:6px solid var(--coral);border-radius:12px;padding:20px 24px;font-weight:700}
+
+/* newsletter */
+.news{background:var(--sun);padding:80px 0}
+.news .wrap{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.news h2{font-size:clamp(2rem,3.6vw,3rem)}
+.news p{font-weight:700;font-size:1.1rem;margin-top:8px}
+.news form{display:flex;gap:10px;flex-wrap:wrap}
+.news input{padding:16px 22px;border-radius:999px;border:3px solid var(--ink);font:700 1rem var(--sans);min-width:280px;background:#fff}
+.news .ok{font-weight:900;display:none}
+
+/* footer */
+footer{background:var(--ink);color:#f3e9e4;padding:80px 0 40px}
+.foot{display:grid;grid-template-columns:1.3fr repeat(4,1fr);gap:40px}
+.foot h4{font-family:var(--sans);font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:var(--sun);margin-bottom:16px;font-size:.9rem}
+.foot ul{list-style:none;display:grid;gap:10px}
+.foot a{text-decoration:none;opacity:.85}
+.foot a:hover{opacity:1;color:var(--sun)}
+.foot .logo-text{color:#fff}
+.foot-blurb{margin-top:18px;opacity:.75;max-width:280px}
+.disclaimer{margin-top:50px;padding:20px 24px;border:1px solid rgba(255,255,255,.2);border-radius:12px;font-size:.9rem;opacity:.85}
+.legal{border-top:1px solid rgba(255,255,255,.15);margin-top:30px;padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.9rem;opacity:.7}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:1180px){
+  nav,.hdr-right .btn-dark{display:none}
+  .menu-btn{display:block}
+  nav.open{display:block;position:absolute;top:104px;left:0;right:0;background:var(--coral-dk);padding:20px 24px}
+  nav.open ul{flex-direction:column;gap:18px}
+  .hero .wrap{grid-template-columns:1fr;text-align:center;padding-bottom:220px}
+  .hero p{margin-left:auto;margin-right:auto}
+  .hero-art{margin:20px auto -130px;width:100%;max-width:560px}
+  .balloon{width:70px;top:60px}
+  .split{grid-template-columns:1fr}
+  .promise-grid{grid-template-columns:repeat(3,1fr)}
+  .prep-grid{grid-template-columns:repeat(2,1fr);row-gap:36px}
+  .cards{grid-template-columns:1fr}
+  .story-grid{grid-template-columns:repeat(2,1fr)}
+  .story{aspect-ratio:16/10}
+  .story-img{aspect-ratio:4/5}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .wrap{padding:0 16px}
+  header .wrap{height:84px}
+  nav.open{top:84px}
+  .logo-mark{width:48px;height:48px}
+  .logo-text{font-size:1.5rem}
+  .announce{font-size:.8rem}
+  .notice .wrap{align-items:flex-start}
+  .notice svg{width:40px;height:40px}
+  .promise-grid{grid-template-columns:repeat(2,1fr)}
+  .story-grid{grid-template-columns:1fr}
+  .prep-grid{grid-template-columns:1fr}
+  .pbadge .ic{width:96px;height:96px}
+  .news input{min-width:0;width:100%}
+  .news form{width:100%}
+  .steps,.cloud{display:none}
+  .hero .wrap{padding-top:50px;padding-bottom:140px}
+  .hero{min-height:0}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="announce">
+  <div class="wrap">
+    <a href="#preparacion">Nuevo: guía paso a paso para preparar el biberón de forma segura →</a>
+    <div class="social">
+      <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-4 1.7-4 4v2H8v4h2v8h4v-8h3l1-4h-4V8.5c0-.3.2-.5.5-.5z"/></svg></a>
+      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM17.5 5a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6z"/></svg></a>
+    </div>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <a href="#" class="logo" aria-label="babystep inicio">
+      <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="30" fill="#fff"/>
+        <circle cx="32" cy="32" r="25" fill="#FFD23F"/>
+        <ellipse cx="32" cy="39" rx="10" ry="13" fill="#FF5A4E"/>
+        <circle cx="22.5" cy="20" r="3.6" fill="#FF5A4E"/><circle cx="30" cy="16.5" r="3.8" fill="#FF5A4E"/>
+        <circle cx="38" cy="17" r="3.4" fill="#FF5A4E"/><circle cx="44" cy="21.5" r="3" fill="#FF5A4E"/>
+      </svg>
+      <span class="logo-text">babystep<small>fórmula infantil · leche de vaca</small></span>
+    </a>
+    <nav id="nav">
+      <ul>
+        <li><a href="#productos">Etapas <i class="chev"></i></a></li>
+        <li><a href="#historias">Nuestra leche <i class="chev"></i></a></li>
+        <li><a href="#promesa">Aprende <i class="chev"></i></a></li>
+        <li><a href="#preparacion">Preparación</a></li>
+      </ul>
+    </nav>
+    <div class="hdr-right">
+      <a href="#productos" class="btn btn-dark">Dónde comprar</a>
+      <button class="menu-btn" aria-label="Menú" onclick="document.getElementById('nav').classList.toggle('open')"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="scene" aria-hidden="true">
+    <svg class="cloud" style="top:90px;width:180px;animation-duration:55s;animation-delay:-20s" viewBox="0 0 200 90"><path d="M30 80a28 28 0 0 1 4-56 40 40 0 0 1 75-6 32 32 0 0 1 58 18 22 22 0 0 1 3 44z"/></svg>
+    <svg class="cloud" style="top:300px;width:130px;animation-duration:70s;animation-delay:-45s" viewBox="0 0 200 90"><path d="M30 80a28 28 0 0 1 4-56 40 40 0 0 1 75-6 32 32 0 0 1 58 18 22 22 0 0 1 3 44z"/></svg>
+    <svg class="cloud" style="top:200px;width:100px;animation-duration:48s;animation-delay:-5s" viewBox="0 0 200 90"><path d="M30 80a28 28 0 0 1 4-56 40 40 0 0 1 75-6 32 32 0 0 1 58 18 22 22 0 0 1 3 44z"/></svg>
+    <svg class="balloon" viewBox="0 0 100 150">
+      <path d="M50 4C24 4 6 24 6 48c0 26 26 46 38 62h12c12-16 38-36 38-62C94 24 76 4 50 4z" fill="#fff"/>
+      <path d="M50 4c-10 0-18 20-18 44 0 26 8 46 12 62h12c4-16 12-36 12-62 0-24-8-44-18-44z" fill="#FFD23F"/>
+      <path d="M44 110l-4 18M56 110l4 18" stroke="#fff" stroke-width="2"/>
+      <rect x="38" y="126" width="24" height="18" rx="4" fill="#8B5A3C"/>
+    </svg>
+    <svg class="hills" viewBox="0 0 1440 300" preserveAspectRatio="none">
+      <path d="M0 170C220 90 420 90 620 160S1050 250 1440 120V300H0z" fill="#FFD23F"/>
+      <path d="M0 220C260 130 520 150 760 210S1180 240 1440 170V300H0z" fill="#2FB36B"/>
+      <path d="M0 260C300 210 640 230 900 262S1260 270 1440 240V300H0z" fill="#1E8F52"/>
+    </svg>
+  </div>
+  <div class="steps" aria-hidden="true">
+    <svg viewBox="0 0 40 60"><ellipse cx="20" cy="38" rx="12" ry="18"/><circle cx="9" cy="12" r="4"/><circle cx="17" cy="8" r="4"/><circle cx="25" cy="8" r="3.6"/><circle cx="32" cy="12" r="3.2"/></svg>
+    <svg viewBox="0 0 40 60"><ellipse cx="20" cy="38" rx="12" ry="18"/><circle cx="9" cy="12" r="4"/><circle cx="17" cy="8" r="4"/><circle cx="25" cy="8" r="3.6"/><circle cx="32" cy="12" r="3.2"/></svg>
+    <svg viewBox="0 0 40 60"><ellipse cx="20" cy="38" rx="12" ry="18"/><circle cx="9" cy="12" r="4"/><circle cx="17" cy="8" r="4"/><circle cx="25" cy="8" r="3.6"/><circle cx="32" cy="12" r="3.2"/></svg>
+    <svg viewBox="0 0 40 60"><ellipse cx="20" cy="38" rx="12" ry="18"/><circle cx="9" cy="12" r="4"/><circle cx="17" cy="8" r="4"/><circle cx="25" cy="8" r="3.6"/><circle cx="32" cy="12" r="3.2"/></svg>
+  </div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <h1>Cada gran aventura comienza con <em>un pasito.</em></h1>
+      <p>Baby Step es una nutrición para acompañar su alimentación durante cada etapa.</p>
+      <a href="#productos" class="btn btn-flag">Conoce nuestros productos</a>
+    </div>
+    <div class="hero-art">
+      <svg class="heart" viewBox="0 0 64 60" aria-hidden="true"><path d="M32 54S6 38 6 20a13 13 0 0 1 26-5 13 13 0 0 1 26 5c0 18-26 34-26 34z" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"/></svg>
+      <svg class="spark" viewBox="0 0 80 70" aria-hidden="true"><g stroke="#FFD23F" stroke-width="7" stroke-linecap="round"><path d="M14 8l8 26"/><path d="M42 18l18 18"/><path d="M52 46l22 6"/></g></svg>
+      <img class="kids" src="img/ninos.png" alt="Dos niños sonriendo, un bebé gateando y un niño sentado">
+      <img class="pouch p1" src="img/babystep-0-12.png" alt="Baby Step 0 a 12 meses, fórmula para lactantes con hierro">
+      <img class="pouch p2" src="img/babystep-1plus.png" alt="Baby Step 1+ sabor vainilla">
+    </div>
+  </div>
+</section>
+
+<section class="notice" aria-label="Aviso importante">
+  <div class="wrap">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#FFD23F"/><path d="M32 48s-16-9-16-20a8 8 0 0 1 16-4 8 8 0 0 1 16 4c0 11-16 20-16 20z" fill="#FF5A4E"/></svg>
+    <p><strong>Aviso importante:</strong> La leche materna es el mejor alimento para tu bebé. Recomendamos la lactancia materna exclusiva durante los primeros 6 meses. Usa fórmula infantil solo por indicación de tu pediatra o profesional de la salud.</p>
+  </div>
+</section>
+
+<section class="split">
+  <div class="panel-sun rv">
+    <span class="cow"><img src="img/vaca-cuerpo.png" alt="Vaca sonriente"><img class="tail" src="img/vaca-cola.png" alt=""></span>
+    <svg class="drops" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 24c4-2 8 0 8 5s-8 5-10 2-1-6 2-7zM24 28c3-3 8-2 9 2s-4 7-8 5-3-5-1-7z" fill="#fff"/></svg>
+    <div>
+      <h2>Elaborada con leche de vaca</h2>
+      <p>Como ingrediente principal.</p>
+    </div>
+  </div>
+  <div class="panel-leaf rv">
+    <img src="img/escudo.png" alt="Escudo con palomita">
+    <div>
+      <h2>Fórmulas fortificadas</h2>
+      <p>Con 28 vitaminas y minerales.</p>
+    </div>
+    <svg class="spark2" viewBox="0 0 60 60" aria-hidden="true"><g stroke="#FFD23F" stroke-width="6" stroke-linecap="round"><path d="M30 6l-4 18"/><path d="M42 20l14-8"/><path d="M44 36l14 4"/></g></svg>
+  </div>
+</section>
+
+<section class="promise" id="promesa">
+  <div class="wrap">
+    <h2 class="rv">Lo que hay en cada medida de babystep</h2>
+    <div class="promise-grid">
+      <div class="pbadge rv"><div class="ic"><svg viewBox="0 0 64 64"><path d="M22 6h20v8l4 6v34a4 4 0 0 1-4 4H22a4 4 0 0 1-4-4V20l4-6z" fill="#7FD3F7"/><rect x="18" y="30" width="28" height="14" fill="#fff"/></svg></div>Proteína de leche de vaca</div>
+      <div class="pbadge rv"><div class="ic"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="22" fill="#FF5A4E"/><text x="32" y="40" text-anchor="middle" font-family="Nunito" font-weight="900" font-size="20" fill="#fff">Fe</text></svg></div>Hierro</div>
+      <div class="pbadge rv"><div class="ic"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="22" fill="#FFD23F"/><text x="32" y="40" text-anchor="middle" font-family="Nunito" font-weight="900" font-size="18" fill="#2A1E1C">A·D</text></svg></div>Vitaminas</div>
+      <div class="pbadge rv"><div class="ic"><svg viewBox="0 0 64 64"><circle cx="24" cy="26" r="10" fill="#2FB36B"/><circle cx="40" cy="26" r="10" fill="#FFD23F"/><circle cx="32" cy="40" r="10" fill="#FF5A4E"/></svg></div>Minerales</div>
+      <div class="pbadge rv"><div class="ic"><svg viewBox="0 0 64 64"><path d="M32 6c-12 16-16 24-16 32a16 16 0 0 0 32 0c0-8-4-16-16-32z" fill="#2FB36B"/><path d="M26 38l5 5 9-10" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/></svg></div>Fácil de digerir*</div>
+    </div>
+    <p class="fine">*Información ilustrativa. Consulta la tabla nutrimental y la declaración de ingredientes en la etiqueta de cada producto.</p>
+  </div>
+</section>
+
+<section class="products" id="productos">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <h2>Una fórmula para cada etapa.</h2>
+        <p>Tu bebé crece, y sus necesidades también. Cada etapa de babystep está formulada para un momento distinto.</p>
+      </div>
+      <a href="#" class="btn btn-coral">Dónde comprar</a>
+    </div>
+    <div class="cards">
+      <a href="#" class="card rv">
+        <div class="art" style="background:#E3F7EC">
+          <img src="img/etapa-0-12.png" alt="Baby Step 0 a 12 meses, fórmula para lactantes con hierro">
+        </div>
+        <span class="tag">0 a 12 meses</span>
+        <h3>Baby Step · 0 a 12 meses</h3>
+        <span>Fórmula para lactantes con hierro →</span>
+      </a>
+      <a href="#" class="card rv">
+        <div class="art" style="background:#FFE3E0">
+          <img src="img/etapa-1plus.png" alt="Baby Step 1+ sabor vainilla">
+        </div>
+        <span class="tag">1 año en adelante</span>
+        <h3>Baby Step · 1+ Vainilla</h3>
+        <span>Sin azúcar añadida →</span>
+      </a>
+    </div>
+    <p class="fine">Antes de iniciar o cambiar de fórmula, consulta a tu pediatra. No apta para bebés con alergia a la proteína de la leche de vaca o galactosemia.</p>
+  </div>
+</section>
+
+<section class="stories" id="historias">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <h2>Del establo a su biberón, <em>con cuidado</em> en cada paso.</h2>
+        <p>Conoce de dónde viene nuestra leche, cómo la revisamos y los especialistas que nos acompañan.</p>
+      </div>
+    </div>
+    <div class="story-grid">
+      <a href="#" class="story story-img rv" aria-label="Probióticos: microorganismos vivos estudiados por su posible relación con el equilibrio de la microbiota intestinal. Baby Step 0 a 12 meses"><img class="bg" src="img/probioticos.jpg" alt="Baby Step 0 a 12 meses con leche vertiéndose y beneficios de los probióticos"><div class="lbl"><span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+      <a href="#" class="story story-img rv" aria-label="DHA y ARA: ácidos grasos presentes naturalmente en el cerebro y la retina, importantes durante el crecimiento. Baby Step 1+ Vainilla"><img class="bg" src="img/dha-ara.jpg" alt="DHA y ARA: contribuyen al desarrollo cerebral, apoyan la salud visual y son ideales durante el crecimiento. Baby Step 1+ Vainilla" loading="lazy"><div class="lbl"><span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+      <a href="#" class="story story-img rv" aria-label="Vitaminas y minerales: micronutrientes que participan en diversas funciones normales del organismo. Baby Step 0 a 12 meses"><img class="bg" src="img/vitaminas-minerales.jpg" alt="Vitaminas y minerales: micronutrientes que participan en diversas funciones normales del organismo. Baby Step 0 a 12 meses" loading="lazy"><div class="lbl"><span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="prep" id="preparacion">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <h2>Cómo preparar el biberón.</h2>
+        <p>Sigue siempre las instrucciones de la etiqueta y las indicaciones de tu pediatra.</p>
+      </div>
+    </div>
+    <div class="prep-grid">
+      <div class="paso rv"><div class="em">🧼</div><h3>Lava y esteriliza</h3><p>Lávate las manos y esteriliza biberón, chupón y utensilios.</p></div>
+      <div class="paso rv"><div class="em">💧</div><h3>Hierve el agua</h3><p>Hierve agua potable y déjala entibiar a la temperatura indicada en la etiqueta.</p></div>
+      <div class="paso rv"><div class="em">🥄</div><h3>Mide el polvo</h3><p>Usa solo el medidor incluido, al ras y sin presionar.</p></div>
+      <div class="paso rv"><div class="em">🍼</div><h3>Mezcla bien</h3><p>Tapa el biberón y agítalo hasta disolver por completo.</p></div>
+      <div class="paso rv"><div class="em">🌡️</div><h3>Revisa la temperatura</h3><p>Deja caer unas gotas en tu muñeca: deben sentirse tibias.</p></div>
+    </div>
+    <p class="warn rv">Prepara cada toma justo antes de usarla y desecha lo que sobre después de la toma. Agregar más o menos polvo del indicado puede afectar la salud de tu bebé.</p>
+  </div>
+</section>
+
+<section class="news">
+  <div class="wrap">
+    <div>
+      <h2>Únete al club babystep.</h2>
+      <p>Consejos de crianza, guías por etapa y novedades, directo a tu correo.</p>
+    </div>
+    <form onsubmit="event.preventDefault();this.querySelector('.ok').style.display='block';this.querySelector('input').value=''">
+      <input type="email" required placeholder="tu@correo.com" aria-label="Correo electrónico">
+      <button class="btn btn-coral" type="submit">Suscribirme</button>
+      <span class="ok">¡Gracias! Pronto tendrás noticias nuestras 💛</span>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="#" class="logo"><span class="logo-text">babystep<small>fórmula infantil · leche de vaca</small></span></a>
+        <p class="foot-blurb">Fórmula infantil a base de leche de vaca para acompañar cada pasito de tu bebé.</p>
+      </div>
+      <div><h4>Etapas</h4><ul><li><a href="#productos">Baby Step · 0 a 12 meses</a></li><li><a href="#productos">Baby Step 1+ · 1 año en adelante</a></li></ul></div>
+      <div><h4>Aprende</h4><ul><li><a href="#">Lactancia y alimentación</a></li><li><a href="#">Alergia a la proteína de la leche</a></li><li><a href="#">Cambio de etapa</a></li><li><a href="#">Preguntas frecuentes</a></li></ul></div>
+      <div><h4>Preparación</h4><ul><li><a href="#preparacion">Guía paso a paso</a></li><li><a href="#">Tabla de tomas</a></li></ul></div>
+      <div><h4>Más</h4><ul><li><a href="#">Contacto</a></li><li><a href="#">Profesionales de la salud</a></li><li><a href="#">Aviso de privacidad</a></li><li><a href="#">Términos de uso</a></li></ul></div>
+    </div>
+    <p class="disclaimer">La leche materna es el mejor alimento para el lactante. babystep no sustituye la lactancia materna y debe usarse por indicación de un profesional de la salud. Sigue las instrucciones de preparación de la etiqueta.</p>
+    <div class="legal"><span>© 2026 babystep. Todos los derechos reservados.</span><span>Hecho con 💛 para cada pasito.</span></div>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%5)*80+'ms';io.observe(el)});
+document.querySelectorAll('#nav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav').classList.remove('open')));
+</script>
+</body>
+</html>
